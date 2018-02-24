@@ -1,0 +1,13 @@
+body.darkmode-3eb4-450a-8499-7f77cf2f62aa {
+  color: red  !important;
+  background-color: #333  !important;
+  filter: invert(88%) !important;
+}
+
+body.darkmode-3eb4-450a-8499-7f77cf2f62aa img {
+  filter: invert() !important;
+}
+
+body.darkmode-3eb4-450a-8499-7f77cf2f62aa video {
+  filter: invert() !important;
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DarkMode Options</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #333;
+      color: #AAA;
+    }
+
+    div.card {
+      border: 0.2em solid #AAA;
+      border-radius: 0.2em;
+      padding: 1em;
+      text-align: center;
+      width: 16em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    div.card.disabled {
+      display: none;
+    }
+    div.card h1 {
+      font-size: 1.2em;
+      white-space: nowrap;
+      padding-bottom: 0.6em;
+    }
+    div.card ul {
+      list-style: none;
+    }
+    div.card li {
+      padding: 2em 0;
+      font-size: 1em;
+      display: inline-table;
+      white-space: nowrap;
+      width: 6em;
+      height: 4em;
+      border: 0.2em solid #AAA;
+    }
+    div.card li.selected {
+      background-color: #555;
+    }
+    div.card:not(.disabled) li:hover {
+      color: white;
+      border-color: white;
+      background-color: #999;
+    }
+
+    </style>
+    <script src="../src/options.js"></script>
+  </head>
+  <body>
+    <div id="globalCard" class="card">
+      <h1>Global Options</h1>
+      <ul>
+        <li id="enable" class="selected">Enabled</li>
+        <li id="disable">Disable</li>
+      </ul>
+    </div>
+    <div id="domainCard" class="card disabled">
+      <h1>Domain Otions</h1>
+      <ul>
+        <li id="enable_domain">Enable</li>
+        <li id="disable_domain">Disabled</li>
+      <ul>
+    </div>
+  </body>
+</html>
