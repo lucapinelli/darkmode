@@ -92,7 +92,7 @@
       this._getDomain().then((domain) => {
         const dom = this.ui;
         const isEnabled = options.global !== 'disabled';
-        const isSiteEnabled = isEnabled && options.site[domain] !== 'disabled';
+        const isSiteEnabled = isEnabled && (options.site || {})[domain] !== 'disabled';
         this._updateEnableDisable(dom.enable, dom.disable, isEnabled);
         this._updateEnableDisable(dom.enableDomain, dom.disableDomain, isSiteEnabled);
       });
