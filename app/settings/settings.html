@@ -2,56 +2,7 @@
 <html>
   <head>
     <title>DarkMode Options</title>
-    <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background-color: #333;
-      color: #AAA;
-    }
-
-    div.card {
-      border: 0.2em solid #AAA;
-      border-radius: 0.2em;
-      padding: 1em;
-      text-align: center;
-      width: 16em;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    div.card.disabled {
-      display: none;
-    }
-    div.card h1 {
-      font-size: 1.2em;
-      white-space: nowrap;
-      padding-bottom: 0.6em;
-    }
-    div.card ul {
-      list-style: none;
-    }
-    div.card li {
-      padding: 2em 0;
-      font-size: 1em;
-      display: inline-table;
-      white-space: nowrap;
-      width: 6em;
-      height: 4em;
-      border: 0.2em solid #AAA;
-    }
-    div.card li.selected {
-      background-color: #555;
-    }
-    div.card:not(.disabled) li:hover {
-      color: white;
-      border-color: white;
-      background-color: #999;
-    }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="settings.css"/>
     <script src="settings.js"></script>
   </head>
   <body>
@@ -69,5 +20,12 @@
         <li id="disable_domain">Disabled</li>
       <ul>
     </div>
+    <p>
+      TIP: to improve your dark expirience install the
+      <a target="_blank" href="https://chrome.google.com/webstore/detail/dark-theme-for-google-chr/annfbnbieaamhaimclajlajpijgkdblo?hl=en-US">
+        Dark Theme for Google Chrome
+      </a>
+      .
+    </p>
   </body>
 </html>
