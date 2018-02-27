@@ -1,13 +1,14 @@
 {
   "name": "DarkMode",
-  "description": "Inverts the color to darkerize your browser contents",
+  "description": "Inverts the colors to darkerize your browser content.",
   "version": "1.0",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["app/css/dark.css"],
-      "js": ["app/src/injectCss.js"],
-      "run_at": "document_start"
+      "css": ["app/content/dark.css"],
+      "js": ["app/content/background.js"],
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
   "permissions": [
@@ -17,7 +18,7 @@
   "browser_action": {
     "default_title": "DarkMode Options",
     "default_icon": "icon.png",
-    "default_popup": "app/html/options.html"
+    "default_popup": "app/settings/settings.html"
   },
   "manifest_version": 2
 }

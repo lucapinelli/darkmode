@@ -28,14 +28,6 @@
       });
     }
 
-    _enableStyle() {
-      chrome.tabs.executeScript(null, { code: `document.body.classList.add('${this.darkmodeId}')` });
-    }
-
-    _disableStyle() {
-      chrome.tabs.executeScript(null, { code: `document.body.classList.remove('${this.darkmodeId}')` });
-    }
-
     _getDomain() {
       return new Promise((resolve, reject) => {
         chrome.tabs.getSelected(null, (tab) => {
@@ -45,17 +37,14 @@
     }
 
     enable() {
-      this._enableStyle();
       this.updateOptions((options) => ({ ...options, global: 'enabled' }));
     }
 
     disable() {
-      this._disableStyle();
       this.updateOptions((options) => ({ ...options, global: 'disabled' }));
     }
 
     enableDomain() {
-      this._enableStyle();
       this._getDomain().then((domain) => {
         this.updateOptions((options) => ({
           ...options,
@@ -65,7 +54,6 @@
     }
 
     disableDomain() {
-      this._disableStyle();
       this._getDomain().then((domain) => {
         this.updateOptions((options) => ({
           ...options,
@@ -95,6 +83,11 @@
         const isSiteEnabled = isEnabled && (options.site || {})[domain] !== 'disabled';
         this._updateEnableDisable(dom.enable, dom.disable, isEnabled);
         this._updateEnableDisable(dom.enableDomain, dom.disableDomain, isSiteEnabled);
+        if (isEnabled) {
+          dom.domainCard.classList.remove('disabled');
+        } else {
+          dom.domainCard.classList.add('disabled');
+        }
       });
     }
   }
@@ -105,6 +98,8 @@
     ui.disable = document.getElementById('disable');
     ui.enableDomain = document.getElementById('enable_domain');
     ui.disableDomain = document.getElementById('disable_domain');
+    ui.globalCard = document.getElementById('global_card');
+    ui.domainCard = document.getElementById('domain_card');
 
     new DarkMode(ui); // eslint-disable-line no-new
   });
