@@ -34,7 +34,7 @@
   };
 
   chrome.storage.sync.get(darkmodeId, (store) => {
-    enableDisable(store[darkmodeId] || {});
+    enableDisable((store && store[darkmodeId]) || {});
   });
   chrome.storage.onChanged.addListener((changes, area) => {
     if (!changes[darkmodeId] || !changes[darkmodeId].newValue) {

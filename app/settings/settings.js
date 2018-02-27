@@ -9,7 +9,7 @@
       ui.disableDomain.addEventListener('click', this.disableDomain.bind(this));
 
       chrome.storage.sync.get(this.darkmodeId, (store) => {
-        const options = store[this.darkmodeId] || {};
+        const options = (store && store[this.darkmodeId]) || {};
         this.render(options);
       });
 
@@ -23,7 +23,7 @@
 
     updateOptions(updateFn) {
       chrome.storage.sync.get(this.darkmodeId, (store) => {
-        const options = updateFn(store[this.darkmodeId]);
+        const options = updateFn((store && store[this.darkmodeId]) || {});
         chrome.storage.sync.set({[this.darkmodeId]: options});
       });
     }
